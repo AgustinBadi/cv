@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agustín Salinas - CV</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Homenaje&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Homenaje', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            font-weight: 400;
+            font-size: 16px;
+        }
+        
+        .container {
+            max-width: 210mm;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            background: radial-gradient(circle, rgba(30, 35, 40, 1) 0%, rgba(22, 25, 27, 1) 40%, rgba(10, 8, 10, 1) 100%);
+            color: white;
+            padding: 50px 60px;
+        }
+        
+        .header h1 {
+            font-size: 48px;
+            margin-bottom: 8px;
+            font-weight: 400;
+            font-family: 'Homenaje', sans-serif;
+        }
+        
+        .header .subtitle {
+            font-size: 22px;
+            opacity: 0.95;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .header .summary {
+            font-size: 17px;
+            line-height: 1.6;
+            opacity: 0.9;
+            max-width: 700px;
+            font-weight: 400;
+        }
+        
+        .contact-info {
+            padding: 15px 0;
+            margin-top: 25px;
+            display: inline-block;
+        }
+        
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            font-size: 17px;
+            font-weight: 400;
+        }
+        
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+        
+        .main-content {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 0;
+        }
+        
+        .sidebar {
+            background: #f8f9fa;
+            padding: 40px 30px;
+            border-right: 3px solid #000000;
+        }
+        
+        .content {
+            padding: 40px 50px;
+        }
+        
+        .section {
+            margin-bottom: 35px;
+        }
+        
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #6b7280;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid #000000;
+            padding-bottom: 8px;
+        }
+        
+        .sidebar .section-title {
+            font-size: 18px;
+            color: #6b7280;
+            border-bottom: 2px solid #000000;
+        }
+        
+        .skill-item {
+            margin-bottom: 15px;
+        }
+        
+        .skill-name {
+            font-weight: 500;
+            margin-bottom: 5px;
+            font-size: 16px;
+        }
+        
+        .skill-dots {
+            display: flex;
+            gap: 6px;
+        }
+        
+        .skill-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #e0e0e0;
+        }
+        
+        .skill-dot.filled {
+            background: #10b981;
+        }
+        
+        .experience-item, .project-item {
+            margin-bottom: 30px;
+            position: relative;
+            padding-left: 20px;
+            border-left: 2px solid #e0e0e0;
+        }
+        
+        .experience-item:before, .project-item:before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            background: #10b981;
+            border-radius: 50%;
+        }
+        
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+        }
+        
+        .job-title {
+            font-weight: 700;
+            font-size: 19px;
+            color: #2c3e50;
+        }
+        
+        .job-title a {
+            color: #2c3e50;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .job-title a:hover {
+            color: #10b981;
+            text-decoration: underline;
+        }
+        
+        .job-date {
+            color: #7f8c8d;
+            font-size: 15px;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+        
+        .company {
+            color: #059669;
+            font-weight: 500;
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+        
+        .job-description {
+            color: #555;
+            font-size: 16px;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+        
+        .education-item {
+            margin-bottom: 20px;
+        }
+        
+        .education-title {
+            font-weight: 700;
+            font-size: 17px;
+            color: #2c3e50;
+        }
+        
+        .education-place {
+            color: #059669;
+            font-size: 16px;
+            margin-top: 3px;
+            font-weight: 400;
+        }
+        
+        .education-date {
+            color: #7f8c8d;
+            font-size: 15px;
+            margin-top: 3px;
+            font-weight: 400;
+        }
+        
+        .characteristics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .char-tag {
+            background: #10b981;
+            color: white;
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 500;
+        }
+        
+        .language-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-size: 16px;
+            font-weight: 400;
+        }
+        
+        .language-name {
+            font-weight: 500;
+        }
+        
+        .language-level {
+            color: #7f8c8d;
+            font-weight: 400;
+        }
+        
+        .github-link {
+            color: #059669;
+            text-decoration: none;
+            font-size: 16px;
+            word-break: break-all;
+            font-weight: 400;
+        }
+        
+        .github-link:hover {
+            text-decoration: underline;
+        }
+        
+        @media print {
+            body {
+                background: white;
+            }
+            .container {
+                box-shadow: none;
+                max-width: 100%;
+            }
+            .section {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Agustín Salinas</h1>
+            <div class="subtitle">Cardano Smart Contract Developer</div>
+            <div class="summary">
+                Smart contract developer specialized in privacy, cryptography, and Zero-Knowledge technologies. Dedicated to innovation and open-source initiatives of the Cardano ecosystem, with focus on building privacy-preserving solutions and cryptographic tooling.
+            </div>
+            <div class="contact-info">
+                <a href="mailto:librenotgratis@tuta.io" style="margin-right: 30px;">
+                    <svg style="width: 18px; height: 18px; vertical-align: middle; margin-right: 8px; fill: white;" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                    librenotgratis@tuta.io
+                </a>
+                <a href="https://github.com/AgustinBadi" target="_blank">
+                    <svg style="width: 18px; height: 18px; vertical-align: middle; margin-right: 8px; fill: white;" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    github.com/AgustinBadi
+                </a>
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <div class="sidebar">
+                <div class="section">
+                    <div class="section-title">Technical Skills</div>
+                    <div class="skill-item">
+                        <div class="skill-name">Aiken</div>
+                        <div class="skill-dots">
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Haskell & PlutusTx</div>
+                        <div class="skill-dots">
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">TypeScript</div>
+                        <div class="skill-dots">
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Linux</div>
+                        <div class="skill-dots">
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Python</div>
+                        <div class="skill-dots">
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">CI/CD (GitHub Actions)</div>
+                        <div class="skill-dots">
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot filled"></div>
+                            <div class="skill-dot"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <div class="section-title">Languages</div>
+                    <div class="language-item">
+                        <span class="language-name">Spanish</span>
+                        <span class="language-level">Native</span>
+                    </div>
+                    <div class="language-item">
+                        <span class="language-name">English</span>
+                        <span class="language-level">B1</span>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <div class="section-title">Characteristics</div>
+                    <div class="characteristics">
+                        <span class="char-tag">Empathy</span>
+                        <span class="char-tag">Perseverant</span>
+                        <span class="char-tag">Documentation First</span>
+                        <span class="char-tag">Test-Driven Development</span>
+                        <span class="char-tag">Full-Stack</span>
+                        <span class="char-tag">Autonomous</span>
+                        <span class="char-tag">Project Management</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="content">
+                <div class="section">
+                    <div class="section-title">Work Experience</div>
+                    
+                    <div class="experience-item">
+                        <div class="job-header">
+                            <div>
+                                <div class="job-title">Open Source Developer</div>
+                                <div class="company">p0tion-tools</div>
+                            </div>
+                            <div class="job-date">May 2025 - Present</div>
+                        </div>
+                        <div class="job-description">
+                            Contributing to an open-source collective that develops secure software to support the setup of various zkSNARK schemes and build decentralized, secure MPC cryptographic infrastructure.
+                        </div>
+                    </div>
+                    
+                    <div class="experience-item">
+                        <div class="job-header">
+                            <div>
+                                <div class="job-title">Smart Contract Developer</div>
+                                <div class="company">Modulo-p</div>
+                            </div>
+                            <div class="job-date">May 2023 - Present</div>
+                        </div>
+                        <div class="job-description">
+                            Building Blockchain solutions and developing open-source cryptographic applications. My role involves researching new cryptographical innovations, designing, implementing, and testing smart contracts.
+                        </div>
+                    </div>
+                    
+                    <div class="experience-item">
+                        <div class="job-header">
+                            <div>
+                                <div class="job-title">Researcher & Technical Writer</div>
+                                <div class="company">ALDEA DAO</div>
+                            </div>
+                            <div class="job-date">Feb 2022 - Dec 2022</div>
+                        </div>
+                        <div class="job-description">
+                            Led research initiatives on governance and voting mechanisms in DAOs. Authored technical articles about blockchain technology and Cardano ecosystem innovations.
+                        </div>
+                    </div>
+                    
+                    <div class="experience-item">
+                        <div class="job-header">
+                            <div>
+                                <div class="job-title">Web Developer</div>
+                                <div class="company">Freelance</div>
+                            </div>
+                            <div class="job-date">Feb 2021 - Feb 2023</div>
+                        </div>
+                        <div class="job-description">
+                            Created custom websites and applications for small local businesses, delivering tailored digital solutions.
+                        </div>
+                    </div>
+                    
+                    <div class="experience-item">
+                        <div class="job-header">
+                            <div>
+                                <div class="job-title">Front-End Developer & Sys-Admin</div>
+                                <div class="company">RQ Chile</div>
+                            </div>
+                            <div class="job-date">Apr 2021 - Dec 2021</div>
+                        </div>
+                        <div class="job-description">
+                            Developed websites, managed databases, and maintained Linux server infrastructure.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <div class="section-title">Key Projects & Achievements</div>
+                    
+                    <div class="project-item">
+                        <div class="job-header">
+                            <div>
+                                <div class="job-title"><a href="https://github.com/eryxcoop/cardano-zk-proof-of-innocence" target="_blank">Proof of Innocence</a></div>
+                            </div>
+                            <div class="job-date">Apr 2025</div>
+                        </div>
+                        <div class="job-description">
+                            Collaborated with Eryx Cooperative and ENCOINS to create a private compliance solution allowing users to anonymously prove they are not associated with illicit transactions, balancing privacy with regulatory compliance.
+                        </div>
+                    </div>
+                    
+                    <div class="project-item">
+                        <div class="job-header">
+                            <div>
+                                <div class="job-title"><a href="https://github.com/Modulo-P/Cardano-Semaphore" target="_blank">Cardano Semaphore Protocol</a></div>
+                            </div>
+                            <div class="job-date">Sep 2024</div>
+                        </div>
+                        <div class="job-description">
+                            Ported the Semaphore privacy protocol to Cardano, enabling anonymous message broadcasting on-chain by proving group membership through Zero-Knowledge proofs. An open-source initiative that brings privacy capabilities to the Cardano ecosystem.
+                        </div>
+                    </div>
+                    
+                    <div class="project-item">
+                        <div class="job-header">
+                            <div>
+                                <div class="job-title"><a href="https://github.com/Modulo-P/ak-381" target="_blank">AK-381 Library</a></div>
+                            </div>
+                            <div class="job-date">Nov 2023</div>
+                        </div>
+                        <div class="job-description">
+                            Developed an open-source library for verifying Zero-Knowledge proofs within Cardano validators, providing essential cryptographic tooling for privacy-preserving smart contracts on the blockchain.
+                        </div>
+                    </div>
+                    
+                    <div class="project-item">
+                        <div class="job-header">
+                            <div>
+                                <div class="job-title">The Mastermind Game - First ZK dApp in Hydra</div>
+                            </div>
+                            <div class="job-date">May 2024</div>
+                        </div>
+                        <div class="job-description">
+                            Developed one of the first Zero-Knowledge proof decentralized applications on Cardano's Hydra ecosystem, showcasing cutting-edge cryptographic implementation.
+                        </div>
+                    </div>
+                    
+                    <div class="project-item">
+                        <div class="job-header">
+                            <div>
+                                <div class="job-title">🏆 2nd Place - Emurgo Cardano Hackathon</div>
+                            </div>
+                            <div class="job-date">Jul 2023</div>
+                        </div>
+                        <div class="job-description">
+                            Won second place by creating one of the first smart contracts to validate Zero-Knowledge proofs on Cardano.
+                        </div>
+                    </div>
+                    
+                    <div class="project-item">
+                        <div class="job-header">
+                            <div>
+                                <div class="job-title">Plutus Pioneer Program 4th Cohort</div>
+                            </div>
+                            <div class="job-date">Jan 2023</div>
+                        </div>
+                        <div class="job-description">
+                            Successfully completed the intensive Plutus Pioneer Program, gaining deep expertise in Cardano smart contract development.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <div class="section-title">Education</div>
+                    
+                    <div class="education-item">
+                        <div class="education-title">Philosophy Degree</div>
+                        <div class="education-place">Pontificia Universidad Católica de Chile (PUC)</div>
+                        <div class="education-date">Mar 2016 - Dec 2020</div>
+                    </div>
+                    
+                    <div class="education-item">
+                        <div class="education-title">Psychology Minor</div>
+                        <div class="education-place">Pontificia Universidad Católica de Chile (PUC)</div>
+                        <div class="education-date">Dec 2020</div>
+                    </div>
+                    
+                    <div class="education-item">
+                        <div class="education-title">Cambridge English Qualification</div>
+                        <div class="education-place">ESOL, Council of Europe Level B1</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
